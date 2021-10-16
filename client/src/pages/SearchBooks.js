@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-// TODO: REST API
+// : REST API
 // import { saveBook, searchGoogleBooks } from '../utils/API';
-// TODO: GraphQL
+// : GraphQL
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
 
@@ -19,7 +19,7 @@ const SearchBooks = () => {
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  // TODO:
+  // :
   const [saveBook, {error}] = useMutation(SAVE_BOOK);
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
@@ -37,7 +37,7 @@ const SearchBooks = () => {
     }
 
     try {
-      // TODO:
+      // :
       // const response = await searchGoogleBooks(searchInput);
       const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`);
 
@@ -75,12 +75,12 @@ const SearchBooks = () => {
     }
 
     try {
-      // TODO: REST API
+      // : REST API
       // const response = await saveBook(bookToSave, token);
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
-      // TODO:
+      // :
       const { data } = await saveBook( {
         variables: { bookData: { ...bookToSave }}
       })

@@ -1,14 +1,9 @@
-// see SignupForm.js for comments
-// : REST API
-// import React, { useState } from 'react';
-// TODO:
+
 import React, { useState, useEffect } from 'react';
 
 import { Form, Button, Alert } from 'react-bootstrap';
 
-// TODO: RET API
-// import { loginUser } from '../utils/API';
-// TODO:
+
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from "../utils/mutations";
 
@@ -19,10 +14,10 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  // TODO: setup mutation for login
+  // : setup mutation for login
   const [login, {error}] = useMutation(LOGIN_USER);
 
-  // TODO: use effect for error
+  // : use effect for error
   useEffect (() => {
     if (error) {
       setShowAlert(true)
@@ -48,32 +43,32 @@ const LoginForm = () => {
     }
 
     try {
-      // TODO: REST API
+      // : REST API
       // const response = await loginUser(userFormData);
-      // TODO:
+      // :
       const { data } = await login({
         variables: { ...userFormData }
       })
 
-      // TODO: REST API
+      // : REST API
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
 
-      // TODO: REST API
+      // : REST API
       // const { token, user } = await response.json();
 
-      // TODO: REST API
+      // : REST API
       // console.log(user);
       // Auth.login(token);
 
-      //TODO:
+      //:
       console.log("handleFormSubmit: data: ", data);
       Auth.login(data.login.token);
 
     } catch (err) {
       console.error(err);
-      // TODO: REST API. We use useEffect for error. See comment above
+      // : REST API. We use useEffect for error. See comment above
       // setShowAlert(true);
     }
 
