@@ -43,11 +43,19 @@ const resolvers = {
         },
 
         saveBook: async function (parent, { bookData }, context) {
+            console.log("savedbook:", context.user)
+            const book = {...args}
             if (context.user) {
                 //TODO: args.book
+                const user = await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    {$addToSet: {saveBooks: book}},
+                    {new: true}
+                )
 
-                return //TODO data to return
+                return user//TODO data to return
             }
+            throw new AuthenticationError("You must be logged in!")
         },
 
         removeBook: async function (parents, args, context) {

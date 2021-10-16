@@ -29,14 +29,15 @@ const typeDef = gql`
     input BookInput {
         authors: [ String ]
         description: String!
-        bookId: String
+        bookId: String!
         image: String
         link: String
         title: String
     }
 
     type Query {
-        me: user
+        user: [User]
+        me: User
     }
 
     type Mutation {
