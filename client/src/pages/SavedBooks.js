@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
+// TODO: REST API
+// import React, { useState, useEffect } from 'react';
+// TODO:
+import React from 'react';
+
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-// TODO RESTapi 
+// TODO: REST API
 // import { getMe, deleteBook } from '../utils/API';
+// TODO:
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-import { REMOVE_BOOK } from '../utils/mutations'
+import { REMOVE_BOOK } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  // TODO REST api state
+  // TODO: REST API state
   // const [userData, setUserData] = useState({});
   const { loading, data } = useQuery(QUERY_ME);
   const [ removeBook, {error} ] = useMutation(REMOVE_BOOK);
@@ -19,8 +24,10 @@ const SavedBooks = () => {
   const userData = data?.me || {};
 
   // use this to determine if `useEffect()` hook needs to run again
+  // TODO: REST API
   // const userDataLength = Object.keys(userData).length;
 
+  // TODO: REST API
   // useEffect(() => {
   //   const getUserData = async () => {
   //     try {
@@ -55,22 +62,23 @@ const SavedBooks = () => {
     }
 
     try {
-      // TODO REST api
+      // TODO: REST API
       // const response = await deleteBook(bookId, token);
 
-      //TODO REST api
+      // TODO: REST API
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
 
-      //TODO REST api
+      // TODO: REST API
       // const updatedUser = await response.json();
       // setUserData(updatedUser);
 
-      //TODO:
+      // TODO:
       const { data } = await removeBook ({
         variables: { bookId }
       });
+
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
@@ -79,11 +87,11 @@ const SavedBooks = () => {
   };
 
   // if data isn't here yet, say so
-  //TODO REST api
+  // TODO: REST API
   // if (!userDataLength) {
   //   return <h2>LOADING...</h2>;
   // }
-  //TODO:
+  // TODO:
   if (loading) {
     return <h2>LOADING...</h2>
   }

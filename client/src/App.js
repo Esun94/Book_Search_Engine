@@ -4,10 +4,9 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink
+  createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
 
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
@@ -37,7 +36,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -45,9 +43,9 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} />
-            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+            <Route exact path="/" component={SearchBooks} />
+            <Route exact path="/saved" component={SavedBooks} />
+            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
       </Router>
