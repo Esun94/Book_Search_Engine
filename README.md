@@ -16,7 +16,7 @@
 
 A simple Search Engine for Books using GoogleBooks:
 
-Add workouts to the fitness tracker and watch your weekly progress on the Dashboard!
+Login to search for books and save them to your reading-list !
 
 ----
 
